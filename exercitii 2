@@ -1,0 +1,19 @@
+(defun myfind( L E)
+  (cond
+   ((NULL L) nil)
+   ((= E (car L)) t)
+   (t (myfind (cdr L) E))
+))
+
+(defun transform( L)
+  (cond 
+   ((NULL L) nil)
+   ((myfind (cdr L) (car L)) (transform (cdr L)))
+   (t ( cons (car L) (transform (cdr L))))
+)) 
+
+(defun rem(L E)
+  (cond
+   ((NULL L) nil))
+   ((= E (car 
+

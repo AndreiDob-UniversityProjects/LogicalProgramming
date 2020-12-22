@@ -1,0 +1,48 @@
+;insertn(L:list,N:int)
+(defun insertn(L N)
+  (cond
+    ((= N 0) (cons (car L) L  )     )
+    ((> N 0) (cons (car L) (insertn  (cdr L) (- N 1) )))
+    
+    )
+)
+
+;asc(A:list,B:list)
+(defun asc(A B)
+  (cond
+   ((NULL A) nil)
+   (t (cons (cons (car A) (car B))  (asc (cdr A) (cdr B))))
+  )
+)
+
+;sublist(L:list)
+(defun sublist(L)
+  (cond
+   ((null L) 0)
+   ((listp (car L)) (+ 1 (sublist (car L)) (sublist (cdr L))))
+   (t (sublist (cdr L)))
+   )
+)
+
+;numatoms(L:list)
+(defun numatoms( L)
+ (cond
+  ((numberp (car L)) (+ 1 (numatoms (cdr L))))
+  ((null L) 0)
+  (t (numatoms (cdr L)))
+  )
+)
+
+;nosublist(L:list)
+(defun nosublist(L)
+  (cond
+   (t (+ 1 (sublist L)) )
+   )
+)
+
+
+
+;   (sublist (1 2 (3 (4 5) (6 7)) 8 (9 10)))
+; (nosublist  ( list 1 2 (list 3 (list 4 5) (list 6 7)) 8 (list 9 10)))
+
+

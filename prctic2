@@ -1,0 +1,11 @@
+(defun rem1(L C N)
+  (cond
+   ((NULL L) nil)
+   ((= C N) (rem1 (cdr L) (+ 1 C) (* 2 N)))
+   (t (cons (car L) (rem1 (cdr L) (+ 1 C) N)))
+))
+
+(defun remove_element(L)
+  (cond
+   (t (rem1 L 1 1))
+))

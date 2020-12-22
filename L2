@@ -1,0 +1,12 @@
+;(A (B) (C (D) (E)))
+;(preorder (list A ( list  B) ( list C (list D) ( list E))))
+;(preorder (list 'A ( list  'B) ( list 'C (list 'D) ( list 'E))))
+;(preorder (list 3 ( list  'B) ( list 2 (list 'D) ( list 'E))))
+
+;preorder(L:list)
+(defun preorder( L)
+(cond
+ ((NULL L) nil)
+ (t(cons (car L) (append (preorder(cadr L)) (preorder (caddr L)))))
+)
+) 
